@@ -18,18 +18,21 @@ public class KeyBoardManager : MonoBehaviour
     {
         if(textBox.text.Length != 0) {
             textBox.text = textBox.text.Remove(textBox.text.Length - 1, 1);
+            SceneHandler.Instance.menuManager.updateLists();
         }
     }
 
     public void AddLetter(string letter)
     {
         textBox.text = textBox.text + letter;
+        SceneHandler.Instance.menuManager.updateLists();
     }
 
     public void SubmitWord()
     {
-        printBox.text = textBox.text;
-        textBox.text = "";
+        //printBox.text = textBox.text;
+        //textBox.text = "";
         // Debug.Log("Text submitted successfully!");
+        gameObject.SetActive(false);
     }
 }

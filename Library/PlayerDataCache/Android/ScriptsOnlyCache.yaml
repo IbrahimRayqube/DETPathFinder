@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - KeyboardController
     - MenuManager
     - SceneHandler
+    - SpotButtonHandler
     - SpotHandler
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -134,6 +135,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 4358}
     - Class: 114
       Script: {instanceID: 4438}
+    - Class: 114
+      Script: {instanceID: 114468}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -187,7 +190,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 5db7712d2f4a231d9fb051ad0e3b4c40
+      Hash: d94471088b100b1d6b65ed6bb82dae2c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuManager
@@ -607,7 +610,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: c4229d6010e4c671ff2d297f511f2982
+      Hash: ec401fdf9466422b9df9d6300e075d6e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneHandler
@@ -659,6 +662,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: f03ce4e069de6c152c458ac792d8a666
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpotButtonHandler
   platform: 13
   scenePathNames:
   - Assets/Scenes/DET.unity
