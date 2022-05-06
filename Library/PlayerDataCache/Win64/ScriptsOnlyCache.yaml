@@ -21,6 +21,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
@@ -41,6 +42,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.Text
@@ -69,74 +71,84 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 89
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1462}
+      Script: {instanceID: 5466}
     - Class: 114
-      Script: {instanceID: 1464}
+      Script: {instanceID: 5488}
     - Class: 114
-      Script: {instanceID: 1466}
+      Script: {instanceID: 5494}
     - Class: 114
-      Script: {instanceID: 1530}
+      Script: {instanceID: 5578}
     - Class: 114
-      Script: {instanceID: 1538}
+      Script: {instanceID: 5634}
     - Class: 114
-      Script: {instanceID: 1744}
+      Script: {instanceID: 5702}
     - Class: 114
-      Script: {instanceID: 1752}
+      Script: {instanceID: 5708}
     - Class: 114
-      Script: {instanceID: 2024}
+      Script: {instanceID: 5976}
     - Class: 114
-      Script: {instanceID: 2036}
+      Script: {instanceID: 5986}
     - Class: 114
-      Script: {instanceID: 2326}
+      Script: {instanceID: 6274}
     - Class: 114
-      Script: {instanceID: 2438}
+      Script: {instanceID: 6384}
     - Class: 114
-      Script: {instanceID: 2476}
+      Script: {instanceID: 6420}
     - Class: 114
-      Script: {instanceID: 2482}
+      Script: {instanceID: 6426}
     - Class: 114
-      Script: {instanceID: 2606}
+      Script: {instanceID: 6546}
     - Class: 114
-      Script: {instanceID: 2788}
+      Script: {instanceID: 6588}
     - Class: 114
-      Script: {instanceID: 2798}
+      Script: {instanceID: 6728}
     - Class: 114
-      Script: {instanceID: 2880}
+      Script: {instanceID: 6738}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 6820}
     - Class: 114
-      Script: {instanceID: 3142}
+      Script: {instanceID: 6826}
     - Class: 114
-      Script: {instanceID: 3358}
+      Script: {instanceID: 7082}
     - Class: 114
-      Script: {instanceID: 3404}
+      Script: {instanceID: 7216}
     - Class: 114
-      Script: {instanceID: 3486}
+      Script: {instanceID: 7298}
     - Class: 114
-      Script: {instanceID: 3580}
+      Script: {instanceID: 7344}
     - Class: 114
-      Script: {instanceID: 3818}
+      Script: {instanceID: 7424}
     - Class: 114
-      Script: {instanceID: 3836}
+      Script: {instanceID: 7518}
     - Class: 114
-      Script: {instanceID: 4076}
+      Script: {instanceID: 7748}
     - Class: 114
-      Script: {instanceID: 4104}
+      Script: {instanceID: 7766}
     - Class: 114
-      Script: {instanceID: 4210}
+      Script: {instanceID: 8004}
     - Class: 114
-      Script: {instanceID: 4360}
+      Script: {instanceID: 8032}
     - Class: 114
-      Script: {instanceID: 4440}
+      Script: {instanceID: 8136}
+    - Class: 114
+      Script: {instanceID: 8284}
+    - Class: 114
+      Script: {instanceID: 8364}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -160,16 +172,10 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: LayoutElement
-  - hash:
-      serializedVersion: 2
-      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: HorizontalLayoutGroup
+      Hash: 5ab533713adae59372fb3e10a585c186
+    assemblyName: Unity.Timeline.dll
+    namespaceName: UnityEngine.Timeline
+    className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
       Hash: a6e561615949734e9f12f9b61661f43e
@@ -178,19 +184,13 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 5ab533713adae59372fb3e10a585c186
-    assemblyName: Unity.Timeline.dll
-    namespaceName: UnityEngine.Timeline
-    className: AnimationPlayableAsset
-  - hash:
-      serializedVersion: 2
       Hash: 77aaaaa51f7a8d8ff333a879741e47d2
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: d94471088b100b1d6b65ed6bb82dae2c
+      Hash: a49cb7ffc030247d09389a105e1d1cb1
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuManager
@@ -214,6 +214,12 @@ ScriptsOnlyBuild:
     className: Toggle
   - hash:
       serializedVersion: 2
+      Hash: 0dbc3be398b4869a5c8d0d8481ee402c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: LayoutElement
+  - hash:
+      serializedVersion: 2
       Hash: 6bc76e17f0d5e93f3eea7f5a2fe227f3
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -224,6 +230,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -316,7 +328,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: de289e8ad92be2c14d79f35739451058
+      Hash: 92e0f7447077186502c2c92d2ca43a91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: KeyBoardManager
@@ -502,7 +514,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: f03ce4e069de6c152c458ac792d8a666
+      Hash: a47d3b3ad1b9a5747071cfb131c01250
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SpotButtonHandler
@@ -616,7 +628,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMeshUI
   - hash:
       serializedVersion: 2
-      Hash: ec401fdf9466422b9df9d6300e075d6e
+      Hash: 3e52b2cb503471a0ce68b2e6673d10ad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SceneHandler
@@ -671,4 +683,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/DET.unity
-  playerPath: D:/RayQubeProjects/DET WayFinder/DET WayFinder/Builds/v0.1/DET WayFinder.exe
+  playerPath: D:/RayQubeProjects/DETPathFinder/Builds/V10/DET WayFinder.exe

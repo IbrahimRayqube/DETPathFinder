@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public TMP_Text searchField;
+    public InputField searchField;
     public GameObject keyBoard;
     public Transform ME3110Parent, ME3150Parent, ME2510Parent;
     public GameObject spotPrefab;
-    public List<SpotButtonHandler> ME3110SpotList, ME3150SpotList, ME2510SpotList; 
+    public List<SpotButtonHandler> ME3110SpotList, ME3150SpotList, ME2510SpotList;
+    public Button clearBtn;
     // Start is called before the first frame update
     void Start()
     {
@@ -121,6 +123,13 @@ public class MenuManager : MonoBehaviour
         ME3110SpotList.Clear();
         ME3150SpotList.Clear();
         ME2510SpotList.Clear();
+    }
+
+    public void onClickClearBtn()
+    {
+        searchField.text = "";
+        clearBtn.gameObject.SetActive(false);
+        updateLists();
     }
 
 }

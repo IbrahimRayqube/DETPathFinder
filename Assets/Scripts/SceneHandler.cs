@@ -20,6 +20,8 @@ public class SpotDetail
     public string spotID;
     public Vector3 postion;
     public string details = "This is Dummy details";
+    public bool spawnInfoOnLeft = true;
+    public float textSize;
 }
 public class SceneHandler : Singleton<SceneHandler>
 {
@@ -42,6 +44,8 @@ public class SceneHandler : Singleton<SceneHandler>
     public Sprite spotIcon, ReceptionistIcon, MeetingRoomIcon, CafeIcon;
     public SpotDetail currentSpot;
     bool showingPoints = false;
+    public float timer = 0f;
+    public bool startCountDown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,26 +61,37 @@ public class SceneHandler : Singleton<SceneHandler>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (startCountDown)
         {
-            if (infoPanelActivated)
+            timer += Time.deltaTime;
+            if (timer > 10)
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                // Create a particle if hit
-                if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.transform.name);
-                    if (hit.transform.name == "InfoIcon")
-                    {
-                        spawnedInfoPrefab.transform.GetChild(1).gameObject.SetActive(true);
-                    }
-                }
+                clearAll();
+                startCountDown = false;
+                timer = 0;
             }
         }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (infoPanelActivated)
+        //    {
+        //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //        // Create a particle if hit
+        //        if (Physics.Raycast(ray, out hit))
+        //        {
+        //            Debug.Log(hit.transform.name);
+        //            if (hit.transform.name == "InfoIcon")
+        //            {
+        //                spawnedInfoPrefab.transform.GetChild(1).gameObject.SetActive(true);
+        //            }
+        //        }
+        //    }
+        //}
     }
 
     public void searchForWayPoints(SpotDetail spot)
     {
+        stopTimer();
         if (showingPoints)
             return;
         if (spot.postion == Vector3.zero)
@@ -97,24 +112,38 @@ public class SceneHandler : Singleton<SceneHandler>
         {
             StartCoroutine(showPath(path));
         }
+        else
+        {
+            Debug.Log("No Path Found");
+        }
     }
 
     IEnumerator showPath(GwWaypoint[] path)
     {
         pathPointStart.SetActive(true);
-        showingPoints = true;
-        for (int i = 1; i < path.Length; i++)
+        showingPoints = true; 
+        spawnedInfoPrefab = Instantiate(infoPrefab, path[path.Length - 1].position, Quaternion.Euler(new Vector3(90, 0, 0)), allSpots[currentSpotIndex].transform);
+        GameObject infoIcon = spawnedInfoPrefab.transform.GetChild(0).gameObject;
+        GameObject infoBox = spawnedInfoPrefab.transform.GetChild(1).gameObject;
+        infoBox.transform.GetChild(0).GetComponent<Text>().text = currentSpot.spotID + " " + currentSpot.spotName;
+        infoIcon.SetActive(true); 
+        infoPanelActivated = true;
+        for (int i = 0; i < path.Length - 1; i++)
         {
             GameObject temp = Instantiate(pathPointPrefab, path[i].position, Quaternion.identity, pathPointParent.transform);
             allPathPoints.Add(temp);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
         }
-        spawnedInfoPrefab = Instantiate(infoPrefab, currentSpot.postion, Quaternion.Euler(new Vector3(90, 0, 0)), allSpots[currentSpotIndex].transform);
-        GameObject infoIcon = spawnedInfoPrefab.transform.GetChild(0).gameObject;
-        infoIcon.SetActive(true);
-        infoIcon.GetComponent<RectTransform>().localPosition = allSpots[currentSpotIndex].GetComponent<SpotHandler>().infoIconPosition;
-        infoPanelActivated = true;
+        //spawnedInfoPrefab = Instantiate(infoPrefab, currentSpot.postion, Quaternion.Euler(new Vector3(90, 0, 0)), allSpots[currentSpotIndex].transform);
+        //GameObject infoIcon = spawnedInfoPrefab.transform.GetChild(0).gameObject;
+        //infoIcon.SetActive(true);
+        //infoIcon.GetComponent<RectTransform>().localPosition = allSpots[currentSpotIndex].GetComponent<SpotHandler>().infoIconPosition;
+        //infoPanelActivated = true;
         showingPoints = false;
+        //GameObject infoBox = spawnedInfoPrefab.transform.GetChild(1).gameObject;
+        infoIcon.SetActive(false);
+        infoBox.SetActive(true);
+        startTimer();
     }
 
     public void clearAll()
@@ -126,5 +155,18 @@ public class SceneHandler : Singleton<SceneHandler>
         allPathPoints.Clear();
         pathPointStart.SetActive(false);
         Destroy(spawnedInfoPrefab);
+        //menuManager.onClickClearBtn();
+    }
+
+    public void startTimer()
+    {
+        timer = 0;
+        startCountDown = true;
+    }
+
+    public void stopTimer()
+    {
+        timer = 0;
+        startCountDown = false;
     }
 }

@@ -42,10 +42,10 @@ public class KeyboardButtonController : MonoBehaviour
         }
     }
     public void SubmitWord() {
-        if(KeyBoardManager.Instance != null) {
-            KeyBoardManager.Instance.SubmitWord();
-        } else {
-            Debug.Log("Submitted successfully!");
-        }
+        //if(KeyBoardManager.Instance != null) {
+        //    KeyBoardManager.Instance.SubmitWord();
+        //} else {
+        //    Debug.Log("Submitted successfully!");
+        //}
     }
 }
